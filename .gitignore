@@ -1,0 +1,24 @@
+# Ignoriere IDE-spezifische Konfigurationen
+.idea/*
+
+# Ignoriere dynamisch generierte Python-Cache-Dateien
+__pycache__/*
+*.pyc
+
+# Ignoriere Jupyter Notebook Checkpoints
+.ipynb_checkpoints/*
+
+# Ignoriere experimentelle und alte Dateien
+lra-experiments.ipynb
+old/*
+
+# Ignoriere Datensätze, die lokal heruntergeladen werden
+datasets/*
+
+# Ignoriere Ausgabeverzeichnisse und Logs
+output_dir/*
+runs/*
+
+# Ignoriere temporäre Dateien und Logs
+*.log
+*.tmp
