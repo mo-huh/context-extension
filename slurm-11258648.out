@@ -1,0 +1,294 @@
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+wandb: Currently logged in as: moritzhuhle (moritzhuhle-university). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.18.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.13.11
+wandb: Run data is saved locally in /home/sc.uni-leipzig.de/mh29wade/context-extension/wandb/run-20241129_145629-1e7awvm5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run soft-fog-2
+wandb: ⭐️ View project at https://wandb.ai/moritzhuhle-university/context-extension
+wandb: 🚀 View run at https://wandb.ai/moritzhuhle-university/context-extension/runs/1e7awvm5
+***** Running training *****
+  Num examples = 25000
+  Num Epochs = 3
+  Instantaneous batch size per device = 16
+  Total train batch size (w. parallel, distributed & accumulation) = 16
+  Gradient Accumulation steps = 1
+  Total optimization steps = 4689
+Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+  0%|          | 0/4689 [00:00<?, ?it/s]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 1/4689 [02:16<177:14:01, 136.10s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 2/4689 [04:31<176:33:55, 135.62s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 3/4689 [06:46<176:13:22, 135.38s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 4/4689 [09:01<175:56:53, 135.20s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 5/4689 [11:16<175:55:33, 135.21s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 6/4689 [13:31<175:51:31, 135.19s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 7/4689 [15:46<175:46:36, 135.16s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 8/4689 [18:02<175:46:30, 135.18s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 9/4689 [20:17<175:39:12, 135.12s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 10/4689 [22:32<175:35:20, 135.10s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 11/4689 [24:47<175:28:41, 135.04s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 12/4689 [27:02<175:29:42, 135.08s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 13/4689 [29:17<175:27:20, 135.08s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+  0%|          | 14/4689 [31:32<175:25:09, 135.08s/it]slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: *** JOB 11258648 ON clara17 CANCELLED AT 2024-11-29T15:29:14 ***
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error
+slurmstepd: error: Failed to get device handle for GPU 0: Unknown Error

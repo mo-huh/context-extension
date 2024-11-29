@@ -1,0 +1,42 @@
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+wandb: Currently logged in as: moritzhuhle (moritzhuhle-university). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.18.7 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.13.11
+wandb: Run data is saved locally in /home/sc.uni-leipzig.de/mh29wade/context-extension/wandb/run-20241129_131153-tt2fbvi2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run good-sun-1
+wandb: ⭐️ View project at https://wandb.ai/moritzhuhle-university/context-extension
+wandb: 🚀 View run at https://wandb.ai/moritzhuhle-university/context-extension/runs/tt2fbvi2
+***** Running training *****
+  Num examples = 25000
+  Num Epochs = 3
+  Instantaneous batch size per device = 16
+  Total train batch size (w. parallel, distributed & accumulation) = 80
+  Gradient Accumulation steps = 1
+  Total optimization steps = 939
+Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+  0%|          | 0/939 [00:00<?, ?it/s]wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: | 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: / 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: - 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: \ 0.008 MB of 0.008 MB uploaded (0.000 MB deduped)wandb: 🚀 View run good-sun-1 at: https://wandb.ai/moritzhuhle-university/context-extension/runs/tt2fbvi2
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20241129_131153-tt2fbvi2/logs
+Traceback (most recent call last):
+  File "run_model.py", line 121, in <module>
+    trainer.train()
+  File "/home/sc.uni-leipzig.de/mh29wade/context-extension/venv/lib64/python3.6/site-packages/transformers/trainer.py", line 1290, in train
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/sc.uni-leipzig.de/mh29wade/context-extension/venv/lib64/python3.6/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/home/sc.uni-leipzig.de/mh29wade/context-extension/venv/lib64/python3.6/site-packages/torch/utils/data/dataloader.py", line 561, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/sc.uni-leipzig.de/mh29wade/context-extension/venv/lib64/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 47, in fetch
+    return self.collate_fn(data)
+  File "/home/sc.uni-leipzig.de/mh29wade/context-extension/venv/lib64/python3.6/site-packages/transformers/data/data_collator.py", line 226, in __call__
+    return_tensors=self.return_tensors,
+  File "/home/sc.uni-leipzig.de/mh29wade/context-extension/venv/lib64/python3.6/site-packages/transformers/tokenization_utils_base.py", line 2714, in pad
+    "You should supply an encoding or a list of encodings to this method "
+AttributeError: 'list' object has no attribute 'keys'

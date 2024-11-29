@@ -1,6 +1,7 @@
 import json
 import numpy as np
 import torch
+import wandb
 
 from argparse import ArgumentParser
 from datasets import load_metric
@@ -8,6 +9,7 @@ from lra_datasets import ImdbDataset
 from lra_config import get_text_classification_config
 from ml_collections import ConfigDict
 from scipy.special import softmax
+from sklearn.metrics import roc_auc_score
 from transformers import (
     AutoTokenizer,
     AutoModelForSequenceClassification,
@@ -24,8 +26,10 @@ TASKS = {
 
 # GPU-Speichernutzung
 def track_gpu_usage():
-    max_memory = torch.cuda.max_memory_allocated() / (1024 ** 2)  # MB
-    return max_memory
+    if torch.cuda.is_available():
+        max_memory = torch.cuda.max_memory_allocated() / (1024 ** 2)  # MB
+        return max_memory
+    return 0  # Kein GPU-Speicher verwendet
 
 # Predictive Entropy berechnen
 def compute_entropy(probs):
@@ -35,14 +39,15 @@ def compute_entropy(probs):
 def compute_metrics(eval_pred):
     predictions, labels = eval_pred
     probs = softmax(predictions, axis=1)
-    predictions = np.argmax(predictions, axis=1)
+    preds = np.argmax(predictions, axis=1)
 
     # Standardmetriken
     accuracy = load_metric("accuracy").compute(predictions=predictions, references=labels)["accuracy"]
     precision = load_metric("precision").compute(predictions=predictions, references=labels)["precision"]
     recall = load_metric("recall").compute(predictions=predictions, references=labels)["recall"]
     f1 = load_metric("f1").compute(predictions=predictions, references=labels)["f1"]
-    auc = load_metric("roc_auc").compute(predictions=predictions, references=labels)["roc_auc"]
+    # auc = load_metric("roc_auc").compute(predictions=predictions, references=labels)["roc_auc"]
+    auc = roc_auc_score(labels, probs[:, 1])  # Hier mit scikit-learn anstatt Hugging Face datasets (version-dependant)
 
     # Zusätzliche Metriken
     entropy = compute_entropy(probs)
@@ -87,6 +92,13 @@ if __name__ == "__main__":
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2)
 
+    # Initialize W&B
+    wandb.init(project="context-extension")
+
+    # Testen, ob GPU verwendet wird -> cuda?
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}. \n Starting training now...")
+
     # Trainingsargumente
     training_args = TrainingArguments(
         output_dir="./results",
@@ -99,6 +111,7 @@ if __name__ == "__main__":
         learning_rate=config.learning_rate,
         weight_decay=config.weight_decay,
         logging_steps=100,
+        fp16=True, # Optional --> Mixed-Precision beschleunigt Training
         load_best_model_at_end=True,
         report_to="wandb",  # Aktiviert Weights & Biases
     )
