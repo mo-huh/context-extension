@@ -21,17 +21,27 @@ class ImdbDataset:
         
         self.tokenizer = config.tokenizer
         self.max_length = config.max_length
-
+        
+    
     def __getitem__(self, i):
         """
-        Holt ein Tokenisiertes Beispiel mit Label aus dem Dataset.
+        Holt ein tokenisiertes Beispiel mit Label aus dem Dataset und gibt ein Dictionary zurück.
         """
         data = self.data[i]
         with open(data[0], 'r', encoding='utf-8') as fo:
             source = fo.read()
-        inputs = self.tokenizer(source, max_length=self.max_length, truncation=True, padding='max_length', return_tensors='pt')
-        target = torch.tensor(int(data[1]), dtype=torch.long)  # Label als Tensor
-        return {key: val.squeeze(0) for key, val in inputs.items()}, target
+        inputs = self.tokenizer(
+            source,
+            max_length=self.max_length,
+            truncation=True,
+            padding='max_length',
+            return_tensors='pt'
+        )
+        # Label hinzufügen
+        inputs = {key: val.squeeze(0) for key, val in inputs.items()}  # Entfernt Batch-Dimension
+        inputs["labels"] = torch.tensor(int(data[1]), dtype=torch.long)  # Label hinzufügen
+        return inputs
+
 
     def __len__(self):
         """
