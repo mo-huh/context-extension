@@ -24,3 +24,4 @@ venv/*
 # Ignoriere temporäre Dateien und Logs
 *.log
 *.tmp
+*.out
