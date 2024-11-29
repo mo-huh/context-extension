@@ -8,16 +8,18 @@ __pycache__/*
 # Ignoriere Jupyter Notebook Checkpoints
 .ipynb_checkpoints/*
 
-# Ignoriere experimentelle und alte Dateien
-lra-experiments.ipynb
-old/*
+# Ignoriere experimentelle Dateien
+notes/sc_anleitung.md
+notes/working_process.md
+notes/get_sc.sh
 
 # Ignoriere Datensätze, die lokal heruntergeladen werden
 datasets/*
 
-# Ignoriere Ausgabeverzeichnisse und Logs
+# Ignoriere Ausgabeverzeichnisse, Venv und Logs
 output_dir/*
 runs/*
+venv/*
 
 # Ignoriere temporäre Dateien und Logs
 *.log
