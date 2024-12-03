@@ -1,27 +1,32 @@
-# Ignoriere IDE-spezifische Konfigurationen
-.idea/*
-
-# Ignoriere dynamisch generierte Python-Cache-Dateien
-__pycache__/*
-*.pyc
-
-# Ignoriere Jupyter Notebook Checkpoints
-.ipynb_checkpoints/*
-
 # Ignoriere experimentelle Dateien
 notes/sc_anleitung.md
 notes/working_process.md
 notes/get_sc.sh
+get_sc.sh
 
 # Ignoriere Datensätze, die lokal heruntergeladen werden
 datasets/*
+
+# Ignoriere checkpoints
+results/*
+
+# Ignoriere W&B
+wandb/*
 
 # Ignoriere Ausgabeverzeichnisse, Venv und Logs
 output_dir/*
 runs/*
 venv/*
 
-# Ignoriere temporäre Dateien und Logs
+# Ignoriere temporäre / dynamisch generierte (Python-Cache) Dateien und Logs
+__pycache__/*
+*.pyc
 *.log
 *.tmp
 *.out
+
+# IDE-spezifische Konfigurationen
+.idea/*
+
+# Ignoriere Jupyter Notebook Checkpoints
+.ipynb_checkpoints/*

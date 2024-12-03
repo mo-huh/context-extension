@@ -1,15 +1,14 @@
+import evaluate
 import json
 import numpy as np
 import torch
 import wandb
 
 from argparse import ArgumentParser
-from datasets import load_metric
 from lra_datasets import ImdbDataset
 from lra_config import get_text_classification_config
 from ml_collections import ConfigDict
 from scipy.special import softmax
-from sklearn.metrics import roc_auc_score
 from transformers import (
     AutoTokenizer,
     AutoModelForSequenceClassification,
@@ -21,7 +20,7 @@ from transformers import (
 # TASKS - IMDb als Standard
 TASKS = {
     'imdb': ConfigDict(dict(dataset_fn=ImdbDataset, config_getter=get_text_classification_config)),
-    # Weitere Datensätze hier
+    # Weitere Datensätze können hier hinzugefügt werden
 }
 
 # GPU-Speichernutzung
@@ -38,16 +37,22 @@ def compute_entropy(probs):
 # Metriken definieren
 def compute_metrics(eval_pred):
     predictions, labels = eval_pred
-    probs = softmax(predictions, axis=1)
+    probs = softmax(predictions, axis=1)  # Wahrscheinlichkeiten aus den Logits
     preds = np.argmax(predictions, axis=1)
 
+    # Metriken laden
+    accuracy_metric = evaluate.load("accuracy")
+    precision_metric = evaluate.load("precision")
+    recall_metric = evaluate.load("recall")
+    f1_metric = evaluate.load("f1")
+    roc_auc_metric = evaluate.load("roc_auc")
+
     # Standardmetriken
-    accuracy = load_metric("accuracy").compute(predictions=predictions, references=labels)["accuracy"]
-    precision = load_metric("precision").compute(predictions=predictions, references=labels)["precision"]
-    recall = load_metric("recall").compute(predictions=predictions, references=labels)["recall"]
-    f1 = load_metric("f1").compute(predictions=predictions, references=labels)["f1"]
-    # auc = load_metric("roc_auc").compute(predictions=predictions, references=labels)["roc_auc"]
-    auc = roc_auc_score(labels, probs[:, 1])  # Hier mit scikit-learn anstatt Hugging Face datasets (version-dependant)
+    accuracy = accuracy_metric.compute(predictions=preds, references=labels)["accuracy"]
+    precision = precision_metric.compute(predictions=preds, references=labels)["precision"]
+    recall = recall_metric.compute(predictions=preds, references=labels)["recall"]
+    f1 = f1_metric.compute(predictions=preds, references=labels)["f1"]
+    auc = roc_auc_metric.compute(prediction_scores=probs[:, 1], references=labels)["roc_auc"]
 
     # Zusätzliche Metriken
     entropy = compute_entropy(probs)
@@ -65,13 +70,17 @@ def compute_metrics(eval_pred):
 
 # Ergebnisse speichern
 def save_results(config, metrics, filename="results.json"):
+    # Umwandlung der Config in ein serialisierbares Format
+    serializable_config = {key: value for key, value in config.to_dict().items() if isinstance(value, (str, int, float, list, dict))}
+
     results = {
-        "config": config.to_dict(),
+        "config": serializable_config,
         "metrics": metrics,
     }
     with open(filename, "w") as f:
         json.dump(results, f, indent=4)
     print(f"Results saved to {filename}")
+
 
 # Main-Funktion
 if __name__ == "__main__":
@@ -97,7 +106,7 @@ if __name__ == "__main__":
 
     # Testen, ob GPU verwendet wird -> cuda?
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"Using device: {device}. \n Starting training now...")
+    print(f"Using device: {device}. \nStarting training now...")
 
     # Trainingsargumente
     training_args = TrainingArguments(
@@ -111,7 +120,7 @@ if __name__ == "__main__":
         learning_rate=config.learning_rate,
         weight_decay=config.weight_decay,
         logging_steps=100,
-        fp16=True, # Optional --> Mixed-Precision beschleunigt Training
+        fp16=True,  # Optional -> Mixed-Precision beschleunigt Training
         load_best_model_at_end=True,
         report_to="wandb",  # Aktiviert Weights & Biases
     )
