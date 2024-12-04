@@ -1,25 +1,26 @@
 {
+    "model_name": "bert-base-uncased",
+    "dataset_name": "imdb",
     "config": {
         "batch_size": 16,
         "learning_rate": 2e-05,
-        "max_length": 512,
-        "model_name": "bert-base-uncased",
+        "max_length": 128,
         "num_epochs": 3,
         "warmup_steps": 500,
         "weight_decay": 0.01
     },
     "metrics": {
-        "eval_loss": 0.21472583711147308,
-        "eval_accuracy": 0.94104,
-        "eval_precision": 0.931444670527469,
-        "eval_recall": 0.95216,
-        "eval_f1": 0.9416884247171453,
-        "eval_auc": 0.9852817024,
-        "eval_predictive_entropy": 0.053545430302619934,
-        "eval_gpu_memory_usage_mb": 4761.35302734375,
-        "eval_runtime": 128.933,
-        "eval_samples_per_second": 193.899,
-        "eval_steps_per_second": 12.123,
+        "eval_loss": 0.2687295377254486,
+        "eval_accuracy": 0.88652,
+        "eval_precision": 0.8828143570240076,
+        "eval_recall": 0.89136,
+        "eval_f1": 0.8870665976672903,
+        "eval_auc": 0.956524288,
+        "eval_predictive_entropy": 0.24588912725448608,
+        "eval_gpu_memory_usage_mb": 2311.51806640625,
+        "eval_runtime": 80.6036,
+        "eval_samples_per_second": 310.16,
+        "eval_steps_per_second": 19.391,
         "epoch": 3.0
     }
 }

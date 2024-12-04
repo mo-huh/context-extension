@@ -69,11 +69,13 @@ def compute_metrics(eval_pred):
     }
 
 # Ergebnisse speichern
-def save_results(config, metrics, filename="results.json"):
+def save_results(config, metrics, dataset_name, filename="results.json"):
     # Umwandlung der Config in ein serialisierbares Format
-    serializable_config = {key: value for key, value in config.to_dict().items() if isinstance(value, (str, int, float, list, dict))}
+    serializable_config = {key: value for key, value in config.to_dict().items() if isinstance(value, (int, float, list, dict))}
 
     results = {
+        "model_name": config.model_name,
+        "dataset_name": dataset_name,
         "config": serializable_config,
         "metrics": metrics,
     }
@@ -87,12 +89,13 @@ if __name__ == "__main__":
     # Argumente parsen
     parser = ArgumentParser()
     parser.add_argument("--task", default="imdb", choices=TASKS.keys(), help="Datensatz auswählen")
+    parser.add_argument("--max_length", type=int, default=512, help="Maximale Token-Länge für das Kontextfenster")
     args = parser.parse_args()
 
     # Passende Konfiguration laden
     task_name = args.task
     task = TASKS[task_name]
-    config, _ = task.config_getter()
+    config, _ = task.config_getter(args.max_length)
     train_dataset = task.dataset_fn(config, split="train")
     eval_dataset = task.dataset_fn(config, split="eval")
 
@@ -140,4 +143,4 @@ if __name__ == "__main__":
 
     # Evaluation und Speicherung der Ergebnisse
     eval_metrics = trainer.evaluate()
-    save_results(config, eval_metrics)
+    save_results(config, eval_metrics, dataset_name=task_name)

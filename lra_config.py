@@ -4,11 +4,18 @@ import ml_collections
 from transformers import AutoTokenizer
 
 
-def get_text_classification_config(num_labels=2):
+def get_text_classification_config(max_length=512, num_labels=2):
     """
     Konfiguriert die Parameter für die Textklassifikation mit dem IMDb-Datensatz.
     """
     config = ml_collections.ConfigDict()
+
+    # Pretrained Modell
+    config.model_name = "bert-base-uncased"  # Pretrained Modell von Hugging Face
+    config.tokenizer = AutoTokenizer.from_pretrained(config.model_name)  # Hugging Face Tokenizer
+
+    # Maximale Sequenzlänge
+    config.max_length = max_length  # Maximale Sequenzlänge für BERT
 
     # Trainingsparameter
     config.batch_size = 16  # (16 / 8) Batchgröße für das Training
@@ -17,13 +24,6 @@ def get_text_classification_config(num_labels=2):
     config.learning_rate = 2e-5  # Lernrate für Feintuning
     config.weight_decay = 1e-2  # Gewichtungsabnahme
     config.warmup_steps = 500  # Anzahl an Warmup-Schritten
-    
-    # Maximale Sequenzlänge
-    config.max_length = 512  # Maximale Sequenzlänge für BERT
-
-    # Pretrained Modell
-    config.model_name = "bert-base-uncased"  # Pretrained Modell von Hugging Face
-    config.tokenizer = AutoTokenizer.from_pretrained(config.model_name)  # Hugging Face Tokenizer
 
     return config, None
 
