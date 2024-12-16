@@ -1,12 +1,14 @@
 import requests
-from tqdm import tqdm
+import tarfile
+
 from argparse import ArgumentParser
 from pathlib import Path
-import tarfile
+from tqdm import tqdm
+
 
 def download_url(url, save_path, chunk_size=1024):
     """
-    Lädt eine Datei von einer URL herunter und speichert sie lokal.
+    Lädt Datei von der URL herunter und speichert sie lokal.
     """
     r = requests.get(url, stream=True)
     total = int(r.headers.get('content-length', 0))

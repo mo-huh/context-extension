@@ -1,7 +1,8 @@
-import torch
 import ml_collections
 
 from transformers import AutoTokenizer
+
+from model_wrappers import CustomBertForSequenceClassification
 
 
 def get_text_classification_config(max_length=512, num_labels=2):
@@ -13,20 +14,25 @@ def get_text_classification_config(max_length=512, num_labels=2):
     # Pretrained Modell
     config.model_name = "bert-base-uncased"  # Pretrained Modell von Hugging Face
     config.tokenizer = AutoTokenizer.from_pretrained(config.model_name)  # Hugging Face Tokenizer
+    config.model = CustomBertForSequenceClassification.from_pretrained(config.model_name, num_labels=num_labels)
 
     # Maximale Sequenzlänge
-    config.max_length = max_length  # Maximale Sequenzlänge für BERT
+    config.max_length = max_length  # Kontextgröße
 
     # Trainingsparameter
-    config.batch_size = 16  # (16 / 8) Batchgröße für das Training
-    config.num_epochs = 3  # (3 / 2 / 1) Anzahl der Epochen für das Feintuning
+    config.num_epochs = 3  # Schnell: 1, Quali: 3 - (3 / 2 / 1)
+    config.batch_size = 8  # Schnell: 2, Quali: 16/8 - (16 / 8 / 4 / 2)
+    config.grad_acc_steps = 2  # Schnell: 1, Quali: 2 - (1 / 2 / 4) Verarbeitet Batch-Größe über mehrere Schritte, bevor Gradientenabstieg erfolgt
 
-    config.learning_rate = 2e-5  # Lernrate für Feintuning
-    config.weight_decay = 1e-2  # Gewichtungsabnahme
-    config.warmup_steps = 500  # Anzahl an Warmup-Schritten
+    # Train-/Eval- Data
+    config.total_train_samples = -1  # (-1 / 5000 / 1000 / 500 / 100)
+    config.total_eval_samples = -1  # (-1 / 200 / 10)
+
+    # Hyperparameter
+    config.learning_rate = 3e-5  # (2e-5 / 3e-5)
+    config.weight_decay = 1e-2
+    config.warmup_steps = 500  # Bei weniger Epochen auch 200 möglich
 
     return config, None
 
     # config.eval_frequency = 100  # Häufigkeit der Evaluation während des Trainings
-    # config.total_train_samples = 500  # (-1 / 5000 / 1000 / 500) Maximale Anzahl an Trainingssamples
-    # config.total_eval_samples = 200  # (-1 / 200) Nutze alle Samples im Evaluierungsdatensatz
